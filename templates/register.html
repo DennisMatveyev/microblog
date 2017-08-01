@@ -1,0 +1,28 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div>
+    <h1>Register</h1>
+      <form action="" method="post" name="login">
+          {{ form.csrf_token }}
+          <p>
+              Name: {{ form.name }}
+          </p>
+          <p>
+              E-mail: {{ form.email }}
+          </p>
+          <p>
+              Login: {{ form.login }}
+          </p>
+          <p>
+              Password: {{ form.password }}
+          </p>
+
+          <p><input type="submit" value="Sign In"></p>
+      </form>
+
+    </div>
+
+{% endblock content %}

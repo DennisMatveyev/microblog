@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+    <table>
+        <tr><td><h1>Hi, {{ user.name }}! </h1></td></tr>
+    </table>
+
+    <form action="" method="post" name="post">
+        {{ form.csrf_token }}
+        <table>
+            <tr>
+                <td>Say something:</td>
+                <td>{{ form.post(size=30, maxlength=140) }}</td>
+                <td>
+                {% for error in form.errors.post %}
+                <span style="color: red;">[{{ error }}]</span><br>
+                {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Post!"></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+    {% for post in posts %}
+    <div>
+        <p> {{post.name}} at <i>{{post.timestamp}}</i>
+            says: <b>{{ post.body }}</b>
+        </p>
+    </div>
+    {% endfor %}
+
+    <!-- Navigating pages -->
+    {% if has_prev %}<a href="/?page={{page-1}}">&lt;&lt; Newer posts</a>{% else %}&lt;&lt; Newer posts{% endif %} |
+    {% if has_next %}<a href="/?page={{page+1}}">Older posts &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
+{% endblock %}

@@ -1,0 +1,7 @@
+aiohttp
+aiohttp_session
+cryptography
+aiopg
+sqlalchemy
+aiohttp_jinja2
+wtforms
